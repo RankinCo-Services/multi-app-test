@@ -1,0 +1,19 @@
+// Minimal app-only schema for beacon-app-min (multi-app stub).
+// Single DB; no platform DB. Add business models as needed.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AppInfo {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String?
+  createdAt DateTime @default(now())
+  @@map("app_info")
+}
