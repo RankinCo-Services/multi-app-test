@@ -1,0 +1,6 @@
+[submodule "beacon-tenant"]
+	path = beacon-tenant
+	url = https://github.com/RankinCo-Services/beacon-tenant.git
+[submodule "beacon-app-layout"]
+	path = beacon-app-layout
+	url = https://github.com/RankinCo-Services/beacon-app-layout.git

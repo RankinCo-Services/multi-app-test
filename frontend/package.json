@@ -11,8 +11,16 @@
     "lint:fix": "eslint . --ext ts,tsx --fix"
   },
   "dependencies": {
+    "@beacon/app-layout": "file:../beacon-app-layout",
+    "@beacon/tenant-ui": "file:../beacon-tenant/packages/tenant-ui",
+    "@clerk/clerk-react": "^4.30.0",
+    "axios": "^1.6.5",
+    "lucide-react": "^0.344.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
+    "sonner": "^1.7.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.47",
