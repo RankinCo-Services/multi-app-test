@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { TenantAuthGuard } from '@beacon/tenant-ui';
 import { NavigationProvider, AppLayout } from '@beacon/app-layout';
 import { Toaster } from 'sonner';
@@ -10,7 +10,7 @@ import { SignInPage, SignUpPage } from '@beacon/tenant-ui';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Toaster position="bottom-right" richColors />
       <Routes>
         <Route path="/sign-in/*" element={<SignInPage />} />
@@ -48,7 +48,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

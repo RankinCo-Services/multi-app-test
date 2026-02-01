@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { TenantAuthProvider, configureBeacon } from '@beacon/tenant-ui';
 import api, { setAuthToken } from './services/api';
 import App from './App';
@@ -19,14 +20,17 @@ configureBeacon({
   afterCreateTenantPath: '/',
 });
 
+// Router must wrap TenantAuthProvider so Clerk/AuthSync useNavigate() works (e.g. when embedded in iframe).
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <TenantAuthProvider
-    publishableKey={PUBLISHABLE_KEY}
-    api={api}
-    setAuthToken={setAuthToken}
-    afterSignInUrl="/tenants"
-    afterSignUpUrl="/tenants"
-  >
-    <App />
-  </TenantAuthProvider>
+  <BrowserRouter>
+    <TenantAuthProvider
+      publishableKey={PUBLISHABLE_KEY}
+      api={api}
+      setAuthToken={setAuthToken}
+      afterSignInUrl="/tenants"
+      afterSignUpUrl="/tenants"
+    >
+      <App />
+    </TenantAuthProvider>
+  </BrowserRouter>
 );
